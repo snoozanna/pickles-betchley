@@ -42,7 +42,7 @@ const ReactiveMicrophoneIcon = ({
     <>
       <div style={{ position: "absolute", right: "10px", top: "25%" }}>
         <MicrophoneIcon
-          size={24}
+          size={44}
           color={microphoneColour}
           data-testid="microphone-icon"
         />

@@ -2,19 +2,8 @@ footer {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
-  width: 100%;
-}
-
-.micBtnWrapper {
-  button {
-    background-color: transparent;
-    box-shadow: none;
-    border: none;
-  }
-
-  img {
-    max-width: 50px;
-  }
+  justify-content: flex-start;
+  width: 50%;
 }
 
 /* INPUT  */
@@ -41,6 +30,33 @@ input.typeInput {
   display: flex;
   flex-direction: column;
   width: 25%;
-  align-items: center;
   text-align: center;
+  align-items: center;
+  justify-content: end;
+  button {
+    background-color: transparent;
+    box-shadow: none;
+    border: none;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  img {
+    max-width: 50px;
+  }
+  button {
+    display: flex;
+    span {
+      color: white;
+    }
+  }
+}
+
+/* wRAPPER  */
+.footer-wrapper {
+  display: flex;
+  flex-direction: row-reverse;
+  width: 100%;
 }

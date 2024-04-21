@@ -19,13 +19,15 @@ const MessagesView = ({ messages }: MessageViewProps) => {
           );
         }
         if (message.type === "character") {
-          const text = `${message.message.character?.name || "???"}: ${
-            message.message.text
-          }`;
+          const text = message.message.text;
+          const character = `${message.message.character?.name || "???"}`;
           return (
-            <div key={index} className="messageWrapper messageChar">
-              <p>{text}</p>
-            </div>
+            <>
+              <span>{character}</span>
+              <div key={index} className="messageWrapper messageChar">
+                <p>{text}</p>
+              </div>
+            </>
           );
         }
         return (

@@ -9,12 +9,12 @@
   --blue: rgb(14, 113, 120);
   --yellow: rgb(255, 198, 0);
   --padding: 4rem;
-  --font-size: 4.5rem;
+  --font-size: 2.2rem;
 }
 
 body {
   background-color: black;
-  background-color: var(--blue);
+
   font-family: "Supria Regular", sans-serif;
   color: white;
   font-size: var(--font-size);
@@ -69,7 +69,16 @@ p {
   padding: 1rem;
 }
 
-input.reply {
+/* INPUT  */
+
+.inputControls {
+  display: flex;
+  flex-direction: column;
+  input {
+    margin-block-end: 1rem;
+  }
+}
+input {
   font-size: var(--font-size);
   padding: 1rem;
   border-radius: 1rem;

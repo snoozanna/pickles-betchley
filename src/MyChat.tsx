@@ -11,7 +11,6 @@ import { PlayParameters } from "./PlayParameters";
 import ConversationView from "./ConversationView";
 import SingleConversationPlaythrough from "./SingleConversationPlaythrough";
 import "./styles/ConeyChat.css";
-import ConversationView2 from "./ConversationView2";
 
 type MyChatProps = {
   conversationParameters: PlayParameters;
@@ -81,7 +80,7 @@ const MyChat = ({ conversationParameters }: MyChatProps) => {
         //   speechRecognitionResponse={speechRecognitionResponse}
         //   speechIsRecording={speechIsRecording}
         // />
-        <ConversationView2
+        <ConversationView
           {...props}
           conversationUuid={conversationUuid}
           startGraphReferenceId={startGraphReferenceId}

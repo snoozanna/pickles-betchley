@@ -39,7 +39,7 @@ const InputControls = ({
   }, [speechRecognitionRequested]);
 
   return (
-    <>
+    <div className="inputControls">
       {shouldShowControls && (
         <>
           {selectedInputType === "speech" && (
@@ -82,7 +82,7 @@ const InputControls = ({
           }}
         />
       )}
-    </>
+    </div>
   );
 };
 

@@ -102,10 +102,10 @@ const RecognisedSpeechPlayerInput = ({
           value={fullText}
           style={{
             backdropFilter: "blur(1px)",
-            height: 35,
-            fontSize: 15,
-            position: "relative",
-            minWidth: "400px",
+            // height: 35,
+            // fontSize: 15,
+            // position: "relative",
+            // minWidth: "400px",
           }}
           disabled
         />

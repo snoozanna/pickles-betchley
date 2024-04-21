@@ -11,6 +11,7 @@ import MessagesView from "./MessagesView";
 import { useEffect, useState, useRef } from "react";
 import InputControls from "./InputControls";
 import Header from "./Header";
+import Footer2 from "./Footer-copy";
 
 type ConversationType = {
   start: (event?: StartEvent | undefined) => void;
@@ -143,67 +144,70 @@ const ConversationView = ({
 
   const playthroughStopSpeechRecognition = () =>
     playthrough.playthrough?.stopSpeechRecognition();
-
+  console.log("messages", messages);
   return (
     <>
       <Header connectionStatus={playthrough.connectionStatus} />
-
-      <button
-        onClick={() => {
-          start({ startGraphReferenceId });
-        }}
-      >
-        Start
-      </button>
-      <button
-        style={{ margin: "0px 10px" }}
-        onClick={() => {
-          setPlayerChoseMicrophone(!playerChoseMicrophone);
-          setSelectedInputType(
-            selectedInputType === "typing" ? "speech" : "typing",
-          );
-        }}
-        disabled={!shouldShowControls}
-      >
-        {playerChoseMicrophone ? "Switch to Type" : "Use microphone"}
-      </button>
-      <button
-        onClick={() => {
-          if (areCharacterVoicesOn) {
-            setAreCharacterVoicesOn(false);
-            speaker.changeIsActive((isActive: boolean) => !isActive);
-          } else {
-            speaker.changeIsActive((isActive: boolean) => !isActive);
-            setAreCharacterVoicesOn(true);
-          }
-        }}
-      >
-        Toggle character voices: {areCharacterVoicesOn ? "Off" : "On"}
-      </button>
-      <br />
-      <br />
-      <MessagesView messages={messages} />
-      <br />
-      <div>
-        <InputControls
-          selectedInputType={selectedInputType}
-          speechIsRecording={speechIsRecording}
-          speechRecognitionResponse={speechRecognitionResponse}
-          playthroughStartSpeechRecognition={playthroughStartSpeechRecognition}
-          playthroughStopSpeechRecognition={playthroughStopSpeechRecognition}
-          onSubmitText={(text: string) => {
-            if (text.trim()) {
-              conversationRef.current?.reply({ text });
-              setShouldShowControls(false);
-            }
-          }}
-          onTap={() => {
-            conversationRef.current?.tap();
-          }}
-          inputType={activeInputType?.type}
-          shouldShowControls={shouldShowControls}
-        />
+      <div className="convoWrapper">
+        {messages.length ? (
+          <div className="messagesWrapper">
+            <MessagesView messages={messages} />
+          </div>
+        ) : (
+          <div className="startWrapper">
+            <span className=" button-wrapper">
+              <button onClick={() => start({ startGraphReferenceId })}>
+                Start
+              </button>
+            </span>
+          </div>
+        )}
       </div>
+      {messages.length ? (
+        <>
+          <div className="footer-wrapper">
+            <InputControls
+              selectedInputType={selectedInputType}
+              speechIsRecording={speechIsRecording}
+              speechRecognitionResponse={speechRecognitionResponse}
+              playthroughStartSpeechRecognition={
+                playthroughStartSpeechRecognition
+              }
+              playthroughStopSpeechRecognition={
+                playthroughStopSpeechRecognition
+              }
+              onSubmitText={(text: string) => {
+                if (text.trim()) {
+                  console.log("text", text);
+                  conversationRef.current?.reply({ text });
+                  setShouldShowControls(false);
+                }
+              }}
+              onTap={() => {
+                conversationRef.current?.tap();
+              }}
+              inputType={activeInputType?.type}
+              shouldShowControls={shouldShowControls}
+            />
+            <Footer2
+              // service={service}
+              // inputValue={inputValue}
+              // type={type}
+              // reply={reply}
+              setPlayerChoseMicrophone={setPlayerChoseMicrophone}
+              playerChoseMicrophone={playerChoseMicrophone}
+              setSelectedInputType={setSelectedInputType}
+              selectedInputType={selectedInputType}
+              shouldShowControls={shouldShowControls}
+              areCharacterVoicesOn={areCharacterVoicesOn}
+              setAreCharacterVoicesOn={setAreCharacterVoicesOn}
+              speaker={speaker}
+            />
+          </div>
+        </>
+      ) : (
+        <footer />
+      )}
     </>
   );
 };
