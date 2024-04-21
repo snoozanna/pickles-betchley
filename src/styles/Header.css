@@ -1,0 +1,22 @@
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+}
+
+header > h1 {
+  font-size: 4rem;
+}
+
+.connectionStatus {
+  background-color: red;
+  padding: 2.8rem;
+  width: fit-content;
+  border-radius: 50%;
+  border: 13px solid white;
+}
+
+.connectionStatus.connected {
+  background-color: green;
+}

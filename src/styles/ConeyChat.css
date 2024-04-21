@@ -1,0 +1,13 @@
+.convoWrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+}
+
+.startWrapper {
+  display: flex;
+  width: 100px;
+  justify-content: space-around;
+}

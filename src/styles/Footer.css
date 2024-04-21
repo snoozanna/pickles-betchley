@@ -1,0 +1,46 @@
+footer {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.micBtnWrapper {
+  button {
+    background-color: transparent;
+    box-shadow: none;
+    border: none;
+  }
+
+  img {
+    max-width: 50px;
+  }
+}
+
+/* INPUT  */
+
+.inputWrapper {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+}
+input.typeInput {
+  /* border: solid black 4px; */
+  border: none;
+  border-radius: 1rem;
+  font-size: 3rem;
+  padding: 1rem;
+  margin-inline-end: 2rem;
+  width: 100%;
+}
+
+/* MIC ACTIVATION  */
+
+.micBtnWrapper {
+  display: flex;
+  flex-direction: column;
+  width: 25%;
+  align-items: center;
+  text-align: center;
+}

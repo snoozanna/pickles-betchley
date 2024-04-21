@@ -1,0 +1,60 @@
+/* MESSAGES  */
+
+.messagesWrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  align-items: flex-start;
+  width: 100%;
+}
+
+.messageWrapper {
+  padding: 2rem;
+  border-radius: 1rem;
+  margin-block-end: 2rem;
+}
+
+.messageWrapper.messageChar {
+  background-color: var(--orange);
+  /* .left.last:before {
+    content: "";
+    position: absolute;
+    z-index: 0;
+    bottom: 0;
+    left: -7px;
+    height: 20px;
+    width: 20px;
+    background: var(--orange);
+    color: black;
+    border-bottom-right-radius: 15px;
+  } */
+}
+
+.messageWrapper.messagePlayer {
+  background-color: var(--yellow);
+  /* .left.last:before {
+    content: "";
+    position: absolute;
+    z-index: 0;
+    bottom: 0;
+    left: -7px;
+    height: 20px;
+    width: 20px;
+    background: var(--orange);
+    color: black;
+    border-bottom-right-radius: 15px;
+  } */
+}
+
+.messageWrapper > p,
+.messageWrapper > div {
+  text-align: left;
+  margin: 0;
+}
+
+.startWrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 2rem;
+}
