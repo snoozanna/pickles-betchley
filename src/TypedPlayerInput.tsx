@@ -1,21 +1,35 @@
+import { useState } from "react";
+import send from "./assets/img/send.png";
+
 type TypedPlayerInputProps = {
   onSubmitText: (text: string) => void;
 };
 
 const TypedPlayerInput = ({ onSubmitText }: TypedPlayerInputProps) => {
+  const [inputValue, setInputValue] = useState("");
+
+  const handleInputChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+    setInputValue(event.target.value);
+  };
+
+  const handleSubmit = () => {
+    if (inputValue.trim() !== "") {
+      onSubmitText(inputValue.trim());
+      setInputValue(""); // Clear input after submission
+    }
+  };
+
   return (
     <>
       <input
         className="reply"
         placeholder="Your reply..."
-        onKeyDown={(event) => {
-          if (event.key === "Enter") {
-            onSubmitText(event.currentTarget.value.trim());
-            // eslint-disable-next-line no-param-reassign
-            event.currentTarget.value = "";
-          }
-        }}
+        value={inputValue}
+        onChange={handleInputChange}
       />
+        <div className="micBtnWrapper">
+      <button onClick={handleSubmit} ><img src={send} alt="Send icon"/> </button>
+      </div>
     </>
   );
 };

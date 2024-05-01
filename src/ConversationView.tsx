@@ -59,7 +59,7 @@ const ConversationView = ({
   const addMessage = (message: any) => {
     setMessages((messages) => [...messages, message]);
   };
-
+  const [storyEnded, setStoryEnded] = useState(false);
   const inputRef = useRef<HTMLInputElement>(null);
 
   useEffect(() => {
@@ -69,12 +69,13 @@ const ConversationView = ({
       conversationRef.current = conversation;
 
       const onMessage = (event: MessageEvent) => {
-        console.log(event);
+        console.log("event", event);
 
         if (event.type !== "media") {
           addMessage({ // here
             ...event.message,
             type: "character",
+            endStory: event.endStory
           });
           if (event.tapToContinue) {
             setActiveInputType({
@@ -159,7 +160,7 @@ const ConversationView = ({
       <div className="convoWrapper">
         {messages.length ? (
           <div className="messagesWrapper">
-            <MessagesView messages={messages} />
+            <MessagesView messages={messages} setStoryEnded={setStoryEnded}/>
           </div>
         ) : (
           <div className="startWrapper">
@@ -178,8 +179,12 @@ const ConversationView = ({
           </div>
         )}
       </div>
+     
       {messages.length ? (
         <>
+         {storyEnded ? 
+        <footer> <p>Head to <a href="https://pickles-playtest.netlify.app/phone3" rel="noreferrer">this link</a></p></footer>
+         :
           <footer className="footer-wrapper">
             <InputControls
               selectedInputType={selectedInputType}
@@ -222,9 +227,10 @@ const ConversationView = ({
               speaker={speaker}
             />
           </footer>
+      }
         </>
       ) : (
-        <footer />
+        <footer className="fake" />
       )}
     </>
   );

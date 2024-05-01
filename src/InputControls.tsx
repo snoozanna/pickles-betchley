@@ -60,11 +60,6 @@ const InputControls = ({
           {selectedInputType === "typing" && (
             <>
               <TypedPlayerInput onSubmitText={onSubmitText} />
-              <div className="player-input-help">
-                <div className="player-input-help-item">
-                  ENTER - <i>Send</i>
-                </div>
-              </div>
             </>
           )}
         </>

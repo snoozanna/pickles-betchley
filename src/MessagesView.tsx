@@ -3,13 +3,18 @@ import "./styles/MessagesView.css";
 
 type MessageViewProps = {
   messages: any[];
+  setStoryEnded: (value: boolean) => void; // Corrected type
 };
 
-const MessagesView = ({ messages }: MessageViewProps) => {
+const MessagesView = ({ messages, setStoryEnded }: MessageViewProps) => {
   return (
     <>
     <div className="messageContainer">
       {messages.map((message, index) => {
+     if(message.endStory === true){
+      setStoryEnded(true)
+      console.log("story finished")
+     };
         if (message.type === "player") {
           const text = message.text;
           const player = `You`;
