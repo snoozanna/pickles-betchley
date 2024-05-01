@@ -73,13 +73,35 @@ p {
 
 .inputControls {
   display: flex;
-  flex-direction: column;
-  input {
-    margin-block-end: 1rem;
-  }
+  justify-content: center;
+  align-items: center;
+  gap:1rem;
 }
 input {
   font-size: var(--font-size);
   padding: 1rem;
   border-radius: 1rem;
+}
+
+/* RECORDING CONTROLS */
+
+button.recordButton{
+  padding: 0.5rem;
+  background-color: transparent;
+  border:none
+}
+
+
+/* FOOTER  */
+
+footer {
+  display: flex;
+  flex-direction: row-reverse;
+  justify-content: space-between;
+  width: 85%;
+  position: fixed;
+  bottom: 2%;
+  left: 5%;
+  padding: 1rem;
+  background-color: black;
 }

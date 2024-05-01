@@ -2,32 +2,36 @@ import { StoredMessage } from "@charisma-ai/react";
 import "./styles/MessagesView.css";
 
 type MessageViewProps = {
-  messages: StoredMessage[];
+  messages: any[];
 };
 
 const MessagesView = ({ messages }: MessageViewProps) => {
   return (
     <>
+    <div className="messageContainer">
       {messages.map((message, index) => {
         if (message.type === "player") {
-          console.log("message", message);
-          const text = `YOU: ${message.message.text}`;
+          const text = message.text;
+          const player = `You`;
           return (
-            <div key={index} className="messageWrapper messagePlayer">
-              <p>{text}</p>
+            <div className="playerWrapper">
+              <span>{player}</span>
+              <div key={index} className="messageWrapper messagePlayer">
+                <p>{text}</p>
+              </div>
             </div>
           );
         }
         if (message.type === "character") {
-          const text = message.message.text;
-          const character = `${message.message.character?.name || "???"}`;
+          const text = message.text;
+          const character = `${message.character?.name || "???"}`;
           return (
-            <>
+            <div className="charWrapper">
               <span>{character}</span>
               <div key={index} className="messageWrapper messageChar">
                 <p>{text}</p>
               </div>
-            </>
+            </div>
           );
         }
         return (
@@ -36,6 +40,7 @@ const MessagesView = ({ messages }: MessageViewProps) => {
           </div>
         );
       })}
+      </div>
     </>
   );
 };

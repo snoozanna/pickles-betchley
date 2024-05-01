@@ -1,7 +1,7 @@
 import React, { FC } from "react";
 import RecordingIndicator from "./RecordingIndicator";
 import RecordingSwitch from "./RecordingSwitch";
-import "./styles/Footer.css"; // Assuming you have a separate CSS file for Footer
+import "./styles/SpeakerControls.css"; // Assuming you have a separate CSS file for Footer
 import mic1 from "./assets/img/mic1.png";
 import keyboard from "./assets/img/keyboard.png";
 import audio from "./assets/img/audio.png";
@@ -29,7 +29,7 @@ const Footer: FC<FooterProps> = ({
   speaker,
 }) => {
   return (
-    <footer>
+    <div className="speakerControls">
       <div className="micBtnWrapper">
         <button
           style={{ margin: "0px 10px" }}
@@ -62,7 +62,7 @@ const Footer: FC<FooterProps> = ({
         <span>Voices</span>
       </div>
       {/* <RecordingSwitch service={service} /> */}
-    </footer>
+    </div>
   );
 };
 

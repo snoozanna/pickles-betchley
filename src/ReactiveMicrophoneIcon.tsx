@@ -12,37 +12,37 @@ const microphoneColours: Record<MicrophoneStatus, string> = {
 
 type ReactiveMicrophoneIconProps = {
   microphoneIsOn: boolean;
-  shiftPressed: boolean;
+  isRecording: boolean;
 };
 
 const ReactiveMicrophoneIcon = ({
   microphoneIsOn,
-  shiftPressed,
+  isRecording,
 }: ReactiveMicrophoneIconProps) => {
   const [microphoneStatus, setMicrophoneStatus] =
     useState<MicrophoneStatus>("off");
 
   useEffect(() => {
     if (microphoneIsOn) {
-      if (shiftPressed) {
+      if (isRecording) {
         setMicrophoneStatus("on");
       } else {
         setMicrophoneStatus("stopping");
       }
-    } else if (shiftPressed) {
+    } else if (isRecording) {
       setMicrophoneStatus("starting");
     } else {
       setMicrophoneStatus("off");
     }
-  }, [shiftPressed, microphoneIsOn]);
+  }, [isRecording, microphoneIsOn]);
 
   const microphoneColour = microphoneColours[microphoneStatus];
 
   return (
     <>
-      <div style={{ position: "absolute", right: "10px", top: "25%" }}>
+      <div>
         <MicrophoneIcon
-          size={44}
+          size={80}
           color={microphoneColour}
           data-testid="microphone-icon"
         />

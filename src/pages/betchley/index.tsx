@@ -8,7 +8,7 @@ import Header from "../../Header";
 const emptyParameters: PlayParameters = {
   storyId: 29564,
   apiKey: "6bb93106-673e-47e0-9eed-57f7551e7c44",
-  version: 1,
+  version: 4,
   startGraphReferenceId: "e9236191-1542-40ad-b45f-f8c911dd8126",
   charismaUrl: "https://play.charisma.ai",
 };

@@ -11,7 +11,7 @@ import MessagesView from "./MessagesView";
 import { useEffect, useState, useRef } from "react";
 import InputControls from "./InputControls";
 import Header from "./Header";
-import Footer2 from "./Footer-copy";
+import Footer2 from "./SpeakControls";
 
 type ConversationType = {
   start: (event?: StartEvent | undefined) => void;
@@ -36,7 +36,7 @@ type ConversationRefType = ReturnType<
 const ConversationView = ({
   conversationUuid,
   startGraphReferenceId,
-  conversation: { messages, start },
+  conversation: { start },
   speaker,
   playthrough,
   speechRecognitionResponse,
@@ -53,8 +53,12 @@ const ConversationView = ({
 
   const conversationRef = useRef<ConversationRefType>();
 
-  const [areCharacterVoicesOn, setAreCharacterVoicesOn] = useState(false);
+  const [areCharacterVoicesOn, setAreCharacterVoicesOn] = useState(true);
   const [shouldShowControls, setShouldShowControls] = useState(false);
+  const [messages, setMessages] = useState<any[]>([]);
+  const addMessage = (message: any) => {
+    setMessages((messages) => [...messages, message]);
+  };
 
   const inputRef = useRef<HTMLInputElement>(null);
 
@@ -68,6 +72,10 @@ const ConversationView = ({
         console.log(event);
 
         if (event.type !== "media") {
+          addMessage({ // here
+            ...event.message,
+            type: "character",
+          });
           if (event.tapToContinue) {
             setActiveInputType({
               type: "tap",
@@ -156,16 +164,23 @@ const ConversationView = ({
         ) : (
           <div className="startWrapper">
             <span className=" button-wrapper">
-              <button onClick={() => start({ startGraphReferenceId })}>
-                Start
-              </button>
+            <button
+        onClick={() => {
+          speaker.changeIsActive(() => true);
+          setTimeout(function () {
+            start({ startGraphReferenceId });
+          }, 200);
+        }}
+      >
+        Start
+      </button>
             </span>
           </div>
         )}
       </div>
       {messages.length ? (
         <>
-          <div className="footer-wrapper">
+          <footer className="footer-wrapper">
             <InputControls
               selectedInputType={selectedInputType}
               speechIsRecording={speechIsRecording}
@@ -178,7 +193,10 @@ const ConversationView = ({
               }
               onSubmitText={(text: string) => {
                 if (text.trim()) {
-                  console.log("text", text);
+                  addMessage({
+                    text,
+                    type: "player",
+                  });
                   conversationRef.current?.reply({ text });
                   setShouldShowControls(false);
                 }
@@ -203,7 +221,7 @@ const ConversationView = ({
               setAreCharacterVoicesOn={setAreCharacterVoicesOn}
               speaker={speaker}
             />
-          </div>
+          </footer>
         </>
       ) : (
         <footer />

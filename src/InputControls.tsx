@@ -55,11 +55,6 @@ const InputControls = ({
                 }}
                 sendText={onSubmitText}
               />
-              <div className="player-input-help">
-                <div className="player-input-help-item">
-                  (Hold) SHIFT - <i>Speak</i>
-                </div>
-              </div>
             </>
           )}
           {selectedInputType === "typing" && (

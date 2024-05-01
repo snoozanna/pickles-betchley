@@ -1,17 +1,33 @@
 /* MESSAGES  */
 
+
 .messagesWrapper {
   display: flex;
   flex-direction: column;
   justify-content: flex-end;
   align-items: flex-start;
   width: 100%;
+  margin-block-end: 13rem;
+}
+
+.messageContainer{
+  width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
 }
 
 .messageWrapper {
-  padding: 2rem;
+  padding: 1rem;
   border-radius: 1rem;
   margin-block-end: 2rem;
+  width: fit-content;
+  min-width: 50%;
+
+}
+
+.messageContainer > .playerWrapper{
+  align-self: end;
 }
 
 .messageWrapper.messageChar {
@@ -32,6 +48,7 @@
 
 .messageWrapper.messagePlayer {
   background-color: var(--yellow);
+  color:black;
   /* .left.last:before {
     content: "";
     position: absolute;
