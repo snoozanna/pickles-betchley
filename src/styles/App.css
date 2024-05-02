@@ -109,7 +109,8 @@ footer {
     button{
       padding: 2rem;
       font-size: 3rem;
-      border-radius: 50%;
+      border-radius: 3rem;
+      text-transform: uppercase;
     }
   }
 }
