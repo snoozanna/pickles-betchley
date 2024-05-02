@@ -14,9 +14,10 @@ import "./styles/ConeyChat.css";
 
 type MyChatProps = {
   conversationParameters: PlayParameters;
+  endUrl: string | undefined;
 };
 
-const MyChat = ({ conversationParameters }: MyChatProps) => {
+const MyChat = ({ conversationParameters, endUrl }: MyChatProps) => {
   const { storyId, apiKey, version, startGraphReferenceId, charismaUrl } =
     conversationParameters;
 
@@ -87,6 +88,7 @@ const MyChat = ({ conversationParameters }: MyChatProps) => {
           playthrough={playthrough}
           speechRecognitionResponse={speechRecognitionResponse}
           speechIsRecording={speechIsRecording}
+          endUrl={endUrl}
         />
       )}
     </SingleConversationPlaythrough>

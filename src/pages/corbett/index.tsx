@@ -23,6 +23,8 @@ function Bletchley() {
     ) as PlayParameters,
   );
 
+  const endUrl = "./final";
+
   const sufficientParameters =
     conversationParameters.storyId && conversationParameters.apiKey;
 
@@ -39,7 +41,7 @@ function Bletchley() {
           </>
         ) : null}
         {confirmed ? (
-          <MyChat conversationParameters={conversationParameters} />
+          <MyChat conversationParameters={conversationParameters} endUrl={endUrl} />
         ) : null}
       </div>
     </div>

@@ -104,6 +104,14 @@ footer {
   left: 5%;
   padding: 1rem;
   background-color: black;
+  .finalMessage{
+    font-size: 3rem;
+    button{
+      padding: 2rem;
+      font-size: 3rem;
+      border-radius: 50%;
+    }
+  }
 }
 
 footer.fake{

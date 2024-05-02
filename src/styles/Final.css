@@ -1,0 +1,9 @@
+.finalMessage{
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+   justify-content: center;
+    p{
+        font-size: 3.5rem;
+    }
+}

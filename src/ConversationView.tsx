@@ -27,6 +27,7 @@ type ConversationViewProps = {
   speaker: any;
   microphone: any;
   conversation: ConversationType;
+  endUrl:string | undefined;
 };
 
 type ConversationRefType = ReturnType<
@@ -41,6 +42,7 @@ const ConversationView = ({
   playthrough,
   speechRecognitionResponse,
   speechIsRecording,
+  endUrl
 }: ConversationViewProps) => {
   const playthroughContext = usePlaythroughContext();
 
@@ -61,7 +63,6 @@ const ConversationView = ({
   };
   const [storyEnded, setStoryEnded] = useState(false);
   const inputRef = useRef<HTMLInputElement>(null);
-
   useEffect(() => {
     if (playthroughContext?.playthrough && conversationUuid) {
       const conversation =
@@ -183,7 +184,9 @@ const ConversationView = ({
       {messages.length ? (
         <>
          {storyEnded ? 
-        <footer> <p>Head to <a href="https://pickles-playtest.netlify.app/phone3" rel="noreferrer">this link</a></p></footer>
+        <footer> 
+          <p className="finalMessage">To continue <a href={endUrl} rel="noreferrer"><button>click here</button></a></p>
+          </footer>
          :
           <footer className="footer-wrapper">
             <InputControls
