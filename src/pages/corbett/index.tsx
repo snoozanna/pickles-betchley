@@ -37,7 +37,7 @@ function Bletchley() {
             <span className="button-wrapper">
               <button onClick={() => setConfirmed(true)}>Confirm</button>
             </span>
-            <footer />
+            <footer  className="fake"/>
           </>
         ) : null}
         {confirmed ? (
