@@ -12,6 +12,7 @@ import { useEffect, useState, useRef } from "react";
 import InputControls from "./InputControls";
 import Header from "./Header";
 import Footer2 from "./SpeakControls";
+// import sound from "./../src/assets/sfsincoming.mp3"
 
 type ConversationType = {
   start: (event?: StartEvent | undefined) => void;
@@ -165,7 +166,7 @@ const ConversationView = ({
           </div>
         ) : (
           <>
-         <audio src="https://actions.google.com/sounds/v1/alarms/digital_watch_alarm_long.ogg" autoPlay loop controls>Audio is not supported on your device</audio>
+         <audio src="https://www.youhavefoundconey.net/MoTT/audio/sfsincoming.mp3" autoPlay loop >Audio is not supported on your device</audio>
           <div className="startWrapper">
             <span className=" button-wrapper">
             <button
