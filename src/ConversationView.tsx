@@ -164,6 +164,8 @@ const ConversationView = ({
             <MessagesView messages={messages} setStoryEnded={setStoryEnded}/>
           </div>
         ) : (
+          <>
+         <audio src="https://actions.google.com/sounds/v1/alarms/digital_watch_alarm_long.ogg" autoPlay loop controls>Audio is not supported on your device</audio>
           <div className="startWrapper">
             <span className=" button-wrapper">
             <button
@@ -178,6 +180,7 @@ const ConversationView = ({
       </button>
             </span>
           </div>
+          </>
         )}
       </div>
      
