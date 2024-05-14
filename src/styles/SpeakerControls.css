@@ -1,9 +1,10 @@
 .speakerControls{
   display: flex;
-  width: 100%;
   justify-content: flex-start;
   gap: 1rem;
-  align-items: end;
+  align-items: start;
+  flex-direction: column;
+  margin-inline-end: 2rem;
 }
 
 .micBtnWrapper > button{
@@ -40,9 +41,21 @@ input.typeInput {
 .micBtnWrapper {
   display: flex;
   flex-direction: column;
-  width: 25%;
+
   align-items: center;
   text-align: center;
 }
 
 
+.holdbtn{
+  font-size: 2rem;
+  border: 3px solid white;
+  border-radius: 1rem;
+  background: transparent;
+  color: white;
+  padding: 1rem;
+}
+
+.holdbtn.listen{
+  background: red;
+}

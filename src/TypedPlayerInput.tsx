@@ -23,7 +23,7 @@ const TypedPlayerInput = ({ onSubmitText }: TypedPlayerInputProps) => {
     <>
       <input
         className="reply"
-        placeholder="Your reply..."
+        placeholder="Type your reply..."
         value={inputValue}
         onChange={handleInputChange}
       />

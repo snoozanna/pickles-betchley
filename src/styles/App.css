@@ -74,7 +74,7 @@ p {
 .inputControls {
   display: flex;
   justify-content: center;
-  align-items: center;
+  align-items: end;
   gap:1rem;
 }
 input {
@@ -118,3 +118,4 @@ footer {
 footer.fake{
   position: inherit;
 }
+

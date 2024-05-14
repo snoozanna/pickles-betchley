@@ -2,7 +2,7 @@ import React, { FC } from "react";
 import RecordingIndicator from "./RecordingIndicator";
 import RecordingSwitch from "./RecordingSwitch";
 import "./styles/SpeakerControls.css"; // Assuming you have a separate CSS file for Footer
-import mic1 from "./assets/img/mic1.png";
+import speak from "./assets/img/speak.png";
 import keyboard from "./assets/img/keyboard.png";
 import audio from "./assets/img/audio.png";
 import audiooff from "./assets/img/audiooff.png";
@@ -32,7 +32,7 @@ const Footer: FC<FooterProps> = ({
     <div className="speakerControls">
       <div className="micBtnWrapper">
         <button
-          style={{ margin: "0px 10px" }}
+     
           onClick={() => {
             setPlayerChoseMicrophone(!playerChoseMicrophone);
             setSelectedInputType(
@@ -41,11 +41,11 @@ const Footer: FC<FooterProps> = ({
           }}
           disabled={!shouldShowControls}
         >
-          {playerChoseMicrophone ? <img src={keyboard} /> : <img src={mic1} />}
+          {!playerChoseMicrophone ? <img src={keyboard} /> : <img src={speak} />}
         </button>
-        {playerChoseMicrophone ? <span>Write</span> : <span>Speak</span>}
+        {!playerChoseMicrophone ? <span>Write</span> : <span>Speak</span>}
       </div>
-      <div className="micBtnWrapper">
+      {/* <div className="micBtnWrapper">
         <button
           onClick={() => {
             if (areCharacterVoicesOn) {
@@ -60,7 +60,7 @@ const Footer: FC<FooterProps> = ({
           {areCharacterVoicesOn ? <img src={audiooff} /> : <img src={audio} />}
         </button>
         <span>Voices</span>
-      </div>
+      </div> */}
       {/* <RecordingSwitch service={service} /> */}
     </div>
   );
