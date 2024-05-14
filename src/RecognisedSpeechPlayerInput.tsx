@@ -122,15 +122,22 @@ const RecognisedSpeechPlayerInput = ({
           microphoneIsOn={microphoneIsOn}
           shiftPressed={active}
         />
+         {active ?
          <button
          className={`holdbtn ${active ? "listen" : ""}`}
-         onMouseDown={handleRequestActive} // Call handleRequestActive when mouse is pressed
-         onMouseUp={handleRequestStop} // Call handleRequestStop when mouse is released
-         onMouseLeave={handleRequestStop} // Call handleRequestStop if mouse leaves the button while pressed
+         onClick={() => handleRequestStop()}
       >
-       {active ? <span>Listening</span> :  <span>Hold to speak</span> } 
+       <span>Send message</span> 
       </button>
-      {/* </div> */}
+      : 
+     
+    <button
+    className={`holdbtn ${active ? "listen" : ""}`}
+    onClick={() => handleRequestActive()}
+ >
+  <span>Click to speak</span> 
+ </button>
+}
    
       {!!countdown && (
         <>
