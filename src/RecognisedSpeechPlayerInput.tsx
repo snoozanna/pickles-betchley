@@ -43,27 +43,7 @@ const RecognisedSpeechPlayerInput = ({
     }
   };
 
-  // const handleKeyDown = (event: KeyboardEvent) => {
-  //   if (event.key === "Shift") {
-  //     handleRequestActive();
-  //   }
-  // };
-
-  // const handleKeyUp = (event: KeyboardEvent) => {
-  //   if (event.key === "Shift") {
-  //     handleRequestStop();
-  //   }
-  // };
-
-  // useEffect(() => {
-  //   window.addEventListener("keydown", handleKeyDown);
-  //   window.addEventListener("keyup", handleKeyUp);
-
-  //   return () => {
-  //     window.removeEventListener("keydown", handleKeyDown);
-  //     window.removeEventListener("keyup", handleKeyUp);
-  //   };
-  // }, []);
+  
 
   useEffect(() => {
     if (speechRecognitionResponse) {
@@ -102,19 +82,15 @@ const RecognisedSpeechPlayerInput = ({
 
   return (
     <>
-      {/* <div
-        style={{
-          position: "relative",
-        }}
-      > */}
         <input
           value={fullText}
           style={{
             backdropFilter: "blur(1px)",
             height: 35,
-            fontSize: 15,
+            fontSize: 30,
             position: "relative",
             minWidth: "400px",
+            color:"white"
           }}
           disabled
         />
