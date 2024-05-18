@@ -190,6 +190,7 @@ const ConversationView = ({
          {storyEnded ? 
         <footer> 
           <p className="finalMessage">To continue <a href={endUrl} rel="noreferrer"><button>click here</button></a></p>
+          <audio src="https://www.youhavefoundconey.net/MoTT/audio/sfsincoming.mp3" autoPlay loop >Audio is not supported on your device</audio>
           </footer>
          :
           <footer className="footer-wrapper">
