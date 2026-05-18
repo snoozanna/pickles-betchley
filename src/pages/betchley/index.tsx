@@ -5,9 +5,10 @@ import "../../styles/generics.css";
 import "../../styles/App.css";
 import Header from "../../Header";
 
+
 const emptyParameters: PlayParameters = {
   storyId: 29564,
-  apiKey: "6bb93106-673e-47e0-9eed-57f7551e7c44",
+  apiKey: process.env.REACT_APP_CHARISMA_API_KEY || "",
   version: 4,
   startGraphReferenceId: "e9236191-1542-40ad-b45f-f8c911dd8126",
   charismaUrl: "https://play.charisma.ai",
@@ -27,6 +28,8 @@ function Bletchley() {
 
   const sufficientParameters =
     conversationParameters.storyId && conversationParameters.apiKey;
+
+console.log("hello", conversationParameters)
 
   return (
     <div className="App">

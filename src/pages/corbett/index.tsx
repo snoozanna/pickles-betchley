@@ -7,7 +7,7 @@ import Header from "../../Header";
 
 const emptyParameters: PlayParameters = {
   storyId: 29564,
-  apiKey: "6bb93106-673e-47e0-9eed-57f7551e7c44",
+  apiKey: process.env.REACT_APP_CHARISMA_API_KEY || "",
   version: 1,
   startGraphReferenceId: "adbc4d96-a0b2-4bd8-885d-c056673921e6",
   charismaUrl: "https://play.charisma.ai",
@@ -27,7 +27,7 @@ function Bletchley() {
 
   const sufficientParameters =
     conversationParameters.storyId && conversationParameters.apiKey;
-
+console.log("emptyParameters", emptyParameters)
   return (
     <div className="App">
       <div className="appContainer">

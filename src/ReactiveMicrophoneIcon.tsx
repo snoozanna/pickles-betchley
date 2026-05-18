@@ -41,11 +41,11 @@ const ReactiveMicrophoneIcon = ({
   return (
     <>
       <div>
-        <MicrophoneIcon
+        {/* <MicrophoneIcon
           size={80}
           color={microphoneColour}
           data-testid="microphone-icon"
-        />
+        /> */}
       </div>
 
     </>
