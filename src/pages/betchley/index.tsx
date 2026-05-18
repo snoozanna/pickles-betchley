@@ -29,7 +29,7 @@ function Bletchley() {
   const sufficientParameters =
     conversationParameters.storyId && conversationParameters.apiKey;
 
-console.log("hello", conversationParameters)
+
 
   return (
     <div className="App">
